@@ -1,5 +1,7 @@
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -10,7 +12,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 
-class FormularioMantenimiento extends JPanel{
+class FormularioMantenimiento extends JPanel implements ActionListener{
 	/* ETIQUETAS:
 	 * 
 	 * lIdMaq = id maquina, 
@@ -19,6 +21,10 @@ class FormularioMantenimiento extends JPanel{
 	 * lPerMan = Personal de Mantenimiento
 	 * lFecMan = fecha del mantenimiento
 	 */
+	private int idMaq;
+	
+	private String perMan, tipMan, desMan;
+	
 	private JLabel lIdMaq, lTipMan, lDesMan, lPerMan, lFecMan;
 	//comboBox id maquina, personal de mantenimiento
 	private JComboBox<String> cIdMaq, cPerMan;
@@ -44,6 +50,7 @@ class FormularioMantenimiento extends JPanel{
 		radioB.add(rTipo2);
 		tDesMan = new JTextArea();
 		bAceptar = new JButton("Aceptar");
+		bAceptar.addActionListener(this);
 		bCancelar = new JButton("Cancerlar");
 		bLimpiar = new JButton("Limpiar");
 		
@@ -59,8 +66,18 @@ class FormularioMantenimiento extends JPanel{
 		add(lPerMan);
 		add(cPerMan);
 		add(lFecMan);
-		
+		add(bAceptar);
+		add(bCancelar);
+		add(bLimpiar);
 		setVisible(true);
 		
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.print("algo");
+		if(){
+			System.out.println("descripcion "+desMan.toString());
+		}		
 	}
 }
